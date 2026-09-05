@@ -24,10 +24,11 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-main);
     line-height: 1.6;
-    background-color: #000000; /* Color base de seguridad */
+    background-color: #121212; /* Color de respaldo */
+    position: relative;
 }
 
-/* Esta capa maneja tu fondo.webp en alta calidad */
+/* Capa fija que evita el estiramiento y el zoom */
 body::before {
     content: "";
     position: fixed;
@@ -39,7 +40,8 @@ body::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1; /* Lo manda hasta atrás para que no tape tus productos */
+    z-index: -1;
+    pointer-events: none;
 }
 
 h1, h2, h3, .brand-font {
