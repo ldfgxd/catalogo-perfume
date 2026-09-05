@@ -670,3 +670,22 @@ footer {
     margin-bottom: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
+/* Botón de Instagram en el Carrito */
+#checkoutInstagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#checkoutInstagram:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}

@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONFIGURACIÓN CENTRALIZADA DE CONTACTO
     // ==========================================
     const CONFIG = {
-        whatsappNumber: "521XXXXXXXXXX", // Tu número con código de país (Ej: 521...)
-        instagramUrl: "https://instagram.com/tu_usuario_instagram"
+        whatsappNumber: "636111222", 
+        instagramUrl: "https://instagram.com/tu_usuario_instagram" // <-- Pon tu usuario real
     };
 
     // Elementos del Modal de Producto Individual
@@ -25,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCount = document.getElementById('cartCount');
     const cartTotalPrice = document.getElementById('cartTotalPrice');
     const checkoutWhatsApp = document.getElementById('checkoutWhatsApp');
+    const checkoutInstagram = document.getElementById('checkoutInstagram');
     const clearCartBtn = document.getElementById('clearCart');
 
-    // Estado del Carrito (Cargado desde localStorage para persistir entre páginas)
+    // Estado del Carrito (Cargado desde localStorage)
     let cart = JSON.parse(localStorage.getItem('aura_cart')) || [];
 
     // Función para actualizar la interfaz del carrito
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsContainer.innerHTML = '';
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '<p style="color: var(--text-muted); padding: 1rem 0;">Tu carrito está vacío.</p>';
-                cartTotalPrice.textContent = '0.00';
+                if (cartTotalPrice) cartTotalPrice.textContent = '0.00';
                 return;
             }
 
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartItemsContainer.appendChild(itemDiv);
             });
 
-            cartTotalPrice.textContent = total.toFixed(2);
+            if (cartTotalPrice) cartTotalPrice.textContent = total.toFixed(2);
         }
     }
 
@@ -147,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Enviar pedido completo por WhatsApp con todos los productos del carrito
+    // Enviar pedido completo por WhatsApp
     if (checkoutWhatsApp) {
         checkoutWhatsApp.addEventListener('click', () => {
             if (cart.length === 0) {
@@ -168,6 +169,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const urlWa = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(detallePedido)}`;
             window.open(urlWa, '_blank');
+        });
+    }
+
+    // Enviar pedido completo por Instagram
+    if (checkoutInstagram) {
+        checkoutInstagram.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío.');
+                return;
+            }
+
+            let detallePedido = "Hola, quiero realizar el siguiente pedido:\n\n";
+            let totalGeneral = 0;
+
+            cart.forEach(item => {
+                const sub = parseFloat(item.price.replace('$', '')) * item.quantity;
+                totalGeneral += sub;
+                detallePedido += `▪️ ${item.name} (${item.price}) x ${item.quantity} = $${sub.toFixed(2)}\n`;
+            });
+
+            detallePedido += `\nTotal a pagar: $${totalGeneral.toFixed(2)}`;
+
+            navigator.clipboard.writeText(detallePedido).then(() => {
+                alert('¡Pedido copiado al portapapeles! Se abrirá Instagram para que lo pegues en el chat.');
+                window.open(CONFIG.instagramUrl, '_blank');
+            });
         });
     }
 });
