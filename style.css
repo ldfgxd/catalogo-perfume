@@ -689,3 +689,30 @@ footer {
     opacity: 0.9;
     transform: translateY(-2px);
 }
+/* Botón de Música en la Barra Superior */
+.nav-container {
+    position: relative;
+}
+
+.music-btn {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: #3a3a3a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+
+.music-btn.playing {
+    border-color: #ec4899;
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}

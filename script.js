@@ -197,4 +197,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // Control del Reproductor de Música (Play y Pause)
+    const musicBtn = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
+
+    if (musicBtn && bgMusic) {
+        musicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.textContent = '🔊';
+                musicBtn.classList.add('playing');
+            } else {
+                bgMusic.pause();
+                musicBtn.textContent = '🎵';
+                musicBtn.classList.remove('playing');
+            }
+        });
+    }
 });

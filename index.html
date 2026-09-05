@@ -15,8 +15,12 @@
 
     <!-- MENÚ DE NAVEGACIÓN -->
 <header>
-    <div class="nav-container">
-        <a href="index.html" class="logo">LD GGS</a>
+   <div class="nav-container">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <button id="musicToggle" class="music-btn" title="Reproducir / Pausar música">🎵</button>
+            <a href="index.html" class="logo">LD GGS</a>
+        </div>
+      <audio id="bgMusic" src="img/musica.mp3" loop></audio>
         <div class="nav-scroll-wrapper">
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Página 1</a></li>
