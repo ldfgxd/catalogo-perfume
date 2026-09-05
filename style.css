@@ -22,13 +22,24 @@ html {
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: #000000; /* Color base de seguridad */
+}
+
+/* Esta capa maneja tu fondo.webp en alta calidad */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background-image: url('img/fondo.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: var(--text-main);
-    line-height: 1.6;
+    z-index: -1; /* Lo manda hasta atrás para que no tape tus productos */
 }
 
 h1, h2, h3, .brand-font {
