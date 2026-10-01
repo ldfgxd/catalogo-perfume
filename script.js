@@ -242,3 +242,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+const modal = document.getElementById('modal');
+
+// 1. Obliga al celular a detectar cuando el dedo toca el fondo oscuro
+window.addEventListener('touchstart', function(e) {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// 2. Mantiene el clic normal para que siga funcionando en la compu
+window.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
