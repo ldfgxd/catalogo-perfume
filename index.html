@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LD ggs | Catálogo - Página 1</title>
+    <title>MarioT | Catálogo - Página 1</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
@@ -18,7 +18,7 @@
    <div class="nav-container">
         <div style="display: flex; align-items: center; gap: 10px;">
             <button id="musicToggle" class="music-btn" title="Reproducir / Pausar música">🎵</button>
-            <a href="index.html" class="logo">LD GGS</a>
+            <a href="index.html" class="logo">MarioT</a>
         </div>
       <audio id="bgMusic" src="img/musica.mp3" loop></audio>
         <div class="nav-scroll-wrapper">
@@ -28,6 +28,8 @@
                 <li><a href="catalogo-2.html">Página 3</a></li>
                 <li><a href="catalogo-3.html">Página 4</a></li>
                 <li><a href="catalogo-4.html">Página 5</a></li>
+                <li><a href="catalogo-5.html">Página 6</a></li>
+                <li><a href="catalogo-6.html">Página 7</a></li>
             </ul>
         </div>
         <a href="#" id="openCartModal" class="nav-cart-btn">🛒 <span id="cartCount">0</span></a>
@@ -46,11 +48,48 @@
     </section>
 
     <!-- CONTENIDO DEL CATÁLOGO -->
-    <main id="catalogo" class="catalog-page">
-       <div class="header-badge-container">
-    <span class="badge-tag">Página 1 de 5</span>
-    <h2 class="badge-title">Colección Destacada</h2>
-    <p class="badge-desc">Los primeros 26 perfumes seleccionados para ti</p>
+    <main class="catalog-page">
+      <div id="catalogo" class="products-grid">
+    <!-- Aquí están tus tarjetas de perfumes (Producto A1, A2, etc.) -->
+</div>
+<!-- BANNER DE PRECIOS MAYORISTAS -->
+<div class="wholesale-banner" style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; border-radius: 12px; padding: 20px; color: #ffffff; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+    <div style="text-align: center; margin-bottom: 15px;">
+        <span style="background: #e11d48; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">Ahorra Más</span>
+        <h3 style="margin: 8px 0 4px; font-size: 1.4rem; font-family: 'Playfair Display', serif;">💰 Tabla de Precios al Mayoreo</h3>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">¡Entre más piezas compras, menor es el precio por unidad!</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; text-align: center;">
+        <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 0.8rem; color: #cbd5e1;">1 unidad</div>
+            <div style="font-size: 1.1rem; font-weight: bold; color: #fff;">$60 <small style="font-size: 0.7rem; color: #94a3b8;">c/u</small></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 0.8rem; color: #cbd5e1;">6+ unidades</div>
+            <div style="font-size: 1.1rem; font-weight: bold; color: #38bdf8;">$49 <small style="font-size: 0.7rem; color: #94a3b8;">c/u</small></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 0.8rem; color: #cbd5e1;">12+ unidades</div>
+            <div style="font-size: 1.1rem; font-weight: bold; color: #38bdf8;">$39 <small style="font-size: 0.7rem; color: #94a3b8;">c/u</small></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 0.8rem; color: #cbd5e1;">20+ unidades</div>
+            <div style="font-size: 1.1rem; font-weight: bold; color: #34d399;">$35 <small style="font-size: 0.7rem; color: #94a3b8;">c/u</small></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 0.8rem; color: #cbd5e1;">30+ unidades</div>
+            <div style="font-size: 1.1rem; font-weight: bold; color: #34d399;">$29 <small style="font-size: 0.7rem; color: #94a3b8;">c/u</small></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 0.8rem; color: #cbd5e1;">50+ unidades</div>
+            <div style="font-size: 1.1rem; font-weight: bold; color: #fbbf24;">$27 <small style="font-size: 0.7rem; color: #94a3b8;">c/u</small></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.08); padding: 10px; border-radius: 8px; border: 1px solid #fbbf24;">
+            <div style="font-size: 0.8rem; color: #fbbf24; font-weight: 600;">100+ unidades</div>
+            <div style="font-size: 1.2rem; font-weight: bold; color: #fbbf24;">$25 <small style="font-size: 0.7rem; color: #fbbf24;">c/u</small></div>
+        </div>
+    </div>
 </div>
         <div class="product-grid">
             <!-- Producto 1 -->
@@ -58,11 +97,11 @@
                 <img src="img/perfu1.webp" alt="Royal Amber" class="product-image">
                 <div class="product-info">
                     <span class="product-category"></span>
-                    <h3 class="product-name">producto A1</h3>
+                    <h3 class="product-name">perfume A1</h3>
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Royal%20Amber" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -72,11 +111,11 @@
                 <img src="img/perfu2.webp" alt="Fleur de Nuit" class="product-image">
                 <div class="product-info">
                     <span class="product-category"></span>
-                    <h3 class="product-name">producto A2</h3>
+                    <h3 class="product-name">perfume A2</h3>
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Fleur%20de%20Nuit" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -86,11 +125,11 @@
                 <img src="img/perfu3.webp" alt="Oud Wood Intense" class="product-image">
                 <div class="product-info">
                     <span class="product-category"></span>
-                    <h3 class="product-name">producto A3</h3>
+                    <h3 class="product-name">perfume A3</h3>
                     <p class="product-notes">perfume</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Oud%20Wood%20Intense" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -104,7 +143,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Azure%20Breeze" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -114,11 +153,11 @@
                 <img src="img/perfu5.webp" alt="Velvet Rose" class="product-image">
                 <div class="product-info">
                     <span class="product-category"></span>
-                    <h3 class="product-name">perfume A132</h3>
+                    <h3 class="product-name">perfume A5</h3>
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Velvet%20Rose" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -128,11 +167,11 @@
                 <img src="img/perfu6.webp" alt="Sauvage Essence" class="product-image">
                 <div class="product-info">
                     <span class="product-category"></span>
-                    <h3 class="product-name">perfume A139</h3>
+                    <h3 class="product-name">perfume A6</h3>
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Sauvage%20Essence" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -146,7 +185,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Golden%20Tobacco" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -160,7 +199,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Iris%20Blanc" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -174,7 +213,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Black%20Phantom" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -188,7 +227,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Citrus%20Splash" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -202,7 +241,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Mystic%20Sandalwood" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -216,7 +255,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Sweet%20Vanilla" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -230,7 +269,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Royal%20Leather" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -244,7 +283,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Aqua%20Marina" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -258,7 +297,7 @@
                     <p class="product-notes">perfume</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Cherry%20Noir" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -272,7 +311,7 @@
                     <p class="product-notes">perfume</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Emerald%20Forest" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -286,7 +325,7 @@
                     <p class="product-notes">perfume</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Midnight%20Musk" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -300,7 +339,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Solar%20Bloom" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -314,7 +353,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Cinnamon%20Spice" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -328,7 +367,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20White%20Tea%20%26%20Thyme" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -342,7 +381,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Dark%20Patchouli" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -356,7 +395,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Peony%20Dream" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -370,7 +409,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Smoky%20Vetiver" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -384,7 +423,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Exotic%20Jasmine" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -398,7 +437,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Cashmere%20Wood" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -412,7 +451,7 @@
                     <p class="product-notes">perfume.</p>
                 </div>
                 <div class="product-footer">
-                    <span class="product-price"></span>
+                    <span class="product-price">$60</span>
                     <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20perfume%20Red%20Tobacco" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
@@ -425,13 +464,20 @@
             <a href="catalogo-2.html">3</a>
             <a href="catalogo-3.html">4</a>
             <a href="catalogo-4.html">5</a>
+            <a href="catalogo-5.html">6</a>
+            <a href="catalogo-6.html">7</a>
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Aura & Essence. Todos los derechos reservados.</p>
-    </footer>
+   <footer style="text-align: center; padding: 20px 10px; font-size: 0.85rem; color: #94a3b8; border-top: 1px solid #1e293b; margin-top: 40px;">
+    <p style="margin: 0 0 8px 0;">&copy; 2026 LD GGS. Todos los derechos reservados.</p>
+    <p style="margin: 0;">
+        Desarrollado por <strong style="color: #e33131;">LuisD</strong> — 
+        <a href="https://wa.me/526361141044?text=Hola%20LuisD,%20me%20interesa%20crear%20un%20sitio%20web" target="_blank" style="color: #38bdf8; text-decoration: none; font-weight: 600;">
+            ¿Quieres tu propia página web? ¡Contáctame por WhatsApp! 📲
+        </a>
+    </p>
+</footer>
 <!-- VENTANA MODAL DE OPCIONES DE COMPRA -->
     <div id="productModal" class="modal">
         <div class="modal-content">

@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
         instagramUrl: "https://instagram.com/tu_usuario_instagram" // <-- Pon tu usuario real
     };
 
+    // Función auxiliar para obtener el precio por unidad según el total de piezas acumuladas
+    function getUnitPrice(totalQuantity) {
+        if (totalQuantity >= 100) return 25;
+        if (totalQuantity >= 50) return 27;
+        if (totalQuantity >= 30) return 29;
+        if (totalQuantity >= 20) return 35;
+        if (totalQuantity >= 12) return 39;
+        if (totalQuantity >= 6) return 49;
+        return 60;
+    }
+
     // Elementos del Modal de Producto Individual
     const modal = document.getElementById('productModal');
     const closeModal = document.querySelector('.close-modal');
@@ -31,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Estado del Carrito (Cargado desde localStorage)
     let cart = JSON.parse(localStorage.getItem('aura_cart')) || [];
 
-    // Función para actualizar la interfaz del carrito
+    // Función para actualizar la interfaz del carrito con escala de mayoreo
     function updateCartUI() {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         if (cartCount) cartCount.textContent = totalItems;
@@ -46,11 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            let total = 0;
+            // Determinar el precio unitario aplicando la escala de mayoreo sobre el total de piezas
+            const unitPrice = getUnitPrice(totalItems);
+            let totalGeneral = totalItems * unitPrice;
+
             cart.forEach((item, index) => {
-                const itemPriceClean = parseFloat(item.price.replace('$', ''));
-                const itemTotal = itemPriceClean * item.quantity;
-                total += itemTotal;
+                const itemTotal = unitPrice * item.quantity;
 
                 const itemDiv = document.createElement('div');
                 itemDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.6rem; text-align: left;';
@@ -58,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div style="display: flex; align-items: center; gap: 0.8rem;">
                         <img src="${item.img}" style="width: 45px; height: 45px; object-fit: cover; border-radius: 6px;">
                         <div>
-                            <h4 style="font-size: 0.9rem; color: var(--accent);">${item.name}</h4>
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">${item.price} x ${item.quantity}</span>
+                            <h4 style="font-size: 0.9rem; color: var(--accent); margin: 0;">${item.name}</h4>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">$${unitPrice} c/u x ${item.quantity} = $${itemTotal.toFixed(2)}</span>
                         </div>
                     </div>
                     <button onclick="window.removeFromCart(${index})" style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 1.2rem; font-weight: bold;" title="Eliminar">&times;</button>
@@ -67,7 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartItemsContainer.appendChild(itemDiv);
             });
 
-            if (cartTotalPrice) cartTotalPrice.textContent = total.toFixed(2);
+            // Mensaje informativo sobre la tarifa de mayoreo aplicada
+            const badgeInfo = document.createElement('div');
+            badgeInfo.style.cssText = 'background: #1e293b; padding: 8px 12px; border-radius: 6px; font-size: 0.8rem; color: #38bdf8; text-align: center; margin-top: 10px; border: 1px solid #334155;';
+            badgeInfo.innerHTML = `💡 Precio aplicado: <strong>$${unitPrice} c/u</strong> (Tarifa por ${totalItems} pieza${totalItems > 1 ? 's' : ''})`;
+            cartItemsContainer.appendChild(badgeInfo);
+
+            if (cartTotalPrice) cartTotalPrice.textContent = totalGeneral.toFixed(2);
         }
     }
 
@@ -148,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Enviar pedido completo por WhatsApp
+    // Enviar pedido completo por WhatsApp con desglose de mayoreo
     if (checkoutWhatsApp) {
         checkoutWhatsApp.addEventListener('click', () => {
             if (cart.length === 0) {
@@ -156,23 +174,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const unitPrice = getUnitPrice(totalItems);
+            const totalGeneral = totalItems * unitPrice;
+
             let detallePedido = "Hola, quiero realizar el siguiente pedido:\n\n";
-            let totalGeneral = 0;
 
             cart.forEach(item => {
-                const sub = parseFloat(item.price.replace('$', '')) * item.quantity;
-                totalGeneral += sub;
-                detallePedido += `▪️ ${item.name} (${item.price}) x ${item.quantity} = $${sub.toFixed(2)}\n`;
+                const sub = unitPrice * item.quantity;
+                detallePedido += `▪️ ${item.name} x ${item.quantity} = $${sub.toFixed(2)}\n`;
             });
 
-            detallePedido += `\n*Total a pagar: $${totalGeneral.toFixed(2)}*`;
+            detallePedido += `\n📦 *Total de piezas:* ${totalItems}`;
+            detallePedido += `\n💰 *Precio unitario aplicado:* $${unitPrice} c/u`;
+            detallePedido += `\n💵 *Total a pagar: $${totalGeneral.toFixed(2)}*`;
 
             const urlWa = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(detallePedido)}`;
             window.open(urlWa, '_blank');
         });
     }
 
-    // Enviar pedido completo por Instagram
+    // Enviar pedido completo por Instagram con desglose de mayoreo
     if (checkoutInstagram) {
         checkoutInstagram.addEventListener('click', () => {
             if (cart.length === 0) {
@@ -180,15 +202,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const unitPrice = getUnitPrice(totalItems);
+            const totalGeneral = totalItems * unitPrice;
+
             let detallePedido = "Hola, quiero realizar el siguiente pedido:\n\n";
-            let totalGeneral = 0;
 
             cart.forEach(item => {
-                const sub = parseFloat(item.price.replace('$', '')) * item.quantity;
-                totalGeneral += sub;
-                detallePedido += `▪️ ${item.name} (${item.price}) x ${item.quantity} = $${sub.toFixed(2)}\n`;
+                const sub = unitPrice * item.quantity;
+                detallePedido += `▪️ ${item.name} x ${item.quantity} = $${sub.toFixed(2)}\n`;
             });
 
+            detallePedido += `\nTotal de piezas: ${totalItems}`;
+            detallePedido += `\nPrecio unitario aplicado: $${unitPrice} c/u`;
             detallePedido += `\nTotal a pagar: $${totalGeneral.toFixed(2)}`;
 
             navigator.clipboard.writeText(detallePedido).then(() => {
@@ -197,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
     // Control del Reproductor de Música (Play y Pause)
     const musicBtn = document.getElementById('musicToggle');
     const bgMusic = document.getElementById('bgMusic');
