@@ -733,3 +733,56 @@ footer {
 .modal-content, [class*="modal-card"] {
     cursor: default; 
 }
+/* Estilo para la 'X' de cierre (modal) */
+.close-modal, .close {
+    position: absolute;
+    top: 15px; /* Ajusta la distancia desde arriba */
+    right: 15px; /* Ajusta la distancia desde la derecha */
+    font-size: 24px !important; /* Un poco más grande para que sea visible */
+    color: #333 !important; /* Color oscuro */
+    background-color: #f0f0f0; /* Fondo gris muy claro para contraste */
+    width: 40px; /* Tamaño del círculo */
+    height: 40px;
+    border-radius: 50%; /* Lo hace un círculo perfecto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté por encima de todo */
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra ligera para que flote */
+    transition: all 0.2s ease; /* Transición suave para el efecto */
+}
+
+/* Efecto al tocarlo o pasar el mouse en computadora */
+.close-modal:active, .close:active {
+    background-color: #e0e0e0;
+    transform: scale(0.95); /* Se encoge un poquito al pulsarlo */
+}
+/* Estilo unificado para la 'X' de cierre (modal de producto y carrito) */
+.close-modal, .close, #close-cart, .close-cart {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    font-size: 24px !important;
+    color: #333 !important;
+    background-color: #f0f0f0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important; 
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 1001 !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+}
+
+/* Efecto al tocarlo */
+.close-modal:active, .close:active, #close-cart:active, .close-cart:active {
+    background-color: #e0e0e0 !important;
+    transform: scale(0.95) !important;
+}
