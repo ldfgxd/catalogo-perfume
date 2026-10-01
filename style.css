@@ -786,3 +786,11 @@ footer {
     background-color: #e0e0e0 !important;
     transform: scale(0.95) !important;
 }
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.0rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #111111;
+}
