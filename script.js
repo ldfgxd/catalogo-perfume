@@ -242,11 +242,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-// Cerrar modal al hacer clic fuera del contenido
-const modal = document.getElementById('modal'); // Asegúrate que tu contenedor oscuro del modal se llame 'modal'
+// Contenedor principal del modal y botón de cierre
+const modal = document.getElementById('modal');
+const closeModalBtn = document.querySelector('.close-modal'); // Cambia '.close-modal' por la clase de tu 'X' si es diferente
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none'; // O quita la clase activa si usas modal.classList.remove('active')
+// Función para cerrar el modal
+function cerrarModal() {
+    if (modal) {
+        modal.style.display = 'none'; // O modal.classList.remove('active'); si usas clases CSS
     }
-});
+}
+
+// 1. Cerrar al tocar la 'X' (soporta clic y toque móvil)
+if (closeModalBtn) {
+    ['click', 'touchstart'].forEach(evento => {
+        closeModalBtn.addEventListener(evento, (e) => {
+            e.preventDefault(); // Evita doble disparo en móviles
+            cerrarModal();
+        });
+    });
+}
+
+// 2. Cerrar al tocar cualquier parte del fondo oscuro
+if (modal) {
+    ['click', 'touchstart'].forEach(evento => {
+        modal.addEventListener(evento, (e) => {
+            if (e.target === modal) {
+                e.preventDefault();
+                cerrarModal();
+            }
+        });
+    });
+}
