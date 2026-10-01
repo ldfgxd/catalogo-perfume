@@ -726,3 +726,10 @@ footer {
     font-weight: 600 !important;
     text-shadow: none !important; /* Quita el brillo excesivo si se ve cargado */
 }
+#modal {
+    cursor: pointer; 
+}
+
+.modal-content, [class*="modal-card"] {
+    cursor: default; 
+}
