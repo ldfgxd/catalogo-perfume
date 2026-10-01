@@ -157,8 +157,8 @@ header {
 }
 
 .product-card {
-    background: linear-gradient(#3a3a3a, #3a3a3a) padding-box,
-                linear-gradient(135deg, #ff007f, #8a2be2) border-box;
+    background: linear-gradient(#7d7474, #7c7373) padding-box,
+                linear-gradient(135deg, #1b0610, #0e0715) border-box;
     border: 2px solid transparent;
     border-radius: 12px;
     overflow: hidden;
