@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONFIGURACIÓN CENTRALIZADA DE CONTACTO
     // ==========================================
     const CONFIG = {
-        whatsappNumber: "636111222", 
-        instagramUrl: "https://instagram.com/tu_usuario_instagram" // <-- Pon tu usuario real
+        whatsappNumber: "17144680374", 
+        instagramUrl: "Https://www.instagram.com/mariorev_26?stkn=MTlwamM2ZjFkZmZhZQ==" // <-- Pon tu usuario real
     };
 
     // Función auxiliar para obtener el precio por unidad según el total de piezas acumuladas
@@ -240,5 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 musicBtn.classList.remove('playing');
             }
         });
+    }
+});
+// Cerrar modal al hacer clic fuera del contenido
+const modal = document.getElementById('modal'); // Asegúrate que tu contenedor oscuro del modal se llame 'modal'
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none'; // O quita la clase activa si usas modal.classList.remove('active')
     }
 });

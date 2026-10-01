@@ -718,3 +718,11 @@ footer {
     border-color: #ec4899;
     box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
 }
+.product-price, 
+.price, 
+[class*="price"] {
+    color: #ffffff !important;
+    font-size: 1rem !important; /* Ajuste para que no se vea gigantesco */
+    font-weight: 600 !important;
+    text-shadow: none !important; /* Quita el brillo excesivo si se ve cargado */
+}
